@@ -21,7 +21,7 @@ import controlador.Controlador;
 import modelo.Centro;
 import net.miginfocom.swing.MigLayout;
 
-public class DialogoAñadirCentro extends JDialog {
+public class DialogoAnadirCentro extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtCodCentro;
@@ -33,7 +33,7 @@ public class DialogoAñadirCentro extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public DialogoAñadirCentro() {
+	public DialogoAnadirCentro() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -47,7 +47,7 @@ public class DialogoAñadirCentro extends JDialog {
 			panel.setLayout(new MigLayout("", "[][][grow]", "[][][][][]"));
 			{
 				JLabel lblNewLabel_3 = new JLabel("");
-				lblNewLabel_3.setIcon(new ImageIcon(DialogoAñadirCentro.class.getResource("/images/editar32.png")));
+				lblNewLabel_3.setIcon(new ImageIcon(DialogoAnadirCentro.class.getResource("/images/editar32.png")));
 				panel.add(lblNewLabel_3, "cell 0 0 1 5");
 			}
 			{

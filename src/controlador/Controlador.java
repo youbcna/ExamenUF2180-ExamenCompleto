@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 import dao.CentroDAO;
 import modelo.Centro;
-import vista.DialogoAñadirCentro;
+import vista.DialogoAnadirCentro;
 import vista.VentanaMostrarCentros;
 import vista.VentanaPpal;
 
@@ -22,7 +22,7 @@ public class Controlador {
 	// Ventanas del sistema
 	private VentanaPpal ventanaPpal;
 	private VentanaMostrarCentros ventanaMostrarCentros;
-	private DialogoAñadirCentro dialogoAñadirCentro;
+	private DialogoAnadirCentro dialogoAnadirCentro;
 	
 	// Objetos DAO o CRUD de la base de datos
 	private CentroDAO centroDAO;
@@ -30,15 +30,15 @@ public class Controlador {
 	
 	
 	public Controlador() {
-		// Creamos las ventanas de la aplicación
+		// Creamos las ventanas de la aplicacinn
 		ventanaPpal = new VentanaPpal();
 		ventanaMostrarCentros = new VentanaMostrarCentros();
-		dialogoAñadirCentro = new DialogoAñadirCentro();
+		dialogoAnadirCentro = new DialogoAnadirCentro();
 		
 		// Dando acceso al controlador desde las vistas
 		ventanaPpal.setControlador(this);
 		ventanaMostrarCentros.setControlador(this);
-		dialogoAñadirCentro.setControlador(this);
+		dialogoAnadirCentro.setControlador(this);
 
 		
 		// Creamos los objetos DAO
@@ -47,7 +47,7 @@ public class Controlador {
 	
 	
 	/**
-	 * Método que arranca el programa principal
+	 * Mntodo que arranca el programa principal
 	 */
 	public void inciarPrograma() {
 		ventanaPpal.setVisible(true);
@@ -60,22 +60,22 @@ public class Controlador {
 	}
 	
 	public void mostrarInsertarCentros() {
-		dialogoAñadirCentro.setVisible(true);
+		dialogoAnadirCentro.setVisible(true);
 	}
 
 
 	/** 
-	 * Método del controlador que añade un nuevo centro a la tabla de centros
+	 * Mntodo del controlador que anade un nuevo centro a la tabla de centros
 	 * @param centro
 	 */
 	public void insertaCentro(Centro centro) {
 		// Invocando a centroDAO
 		int resultado = centroDAO.insertarCentro(centro);
 		if (resultado ==0) {
-			JOptionPane.showMessageDialog(dialogoAñadirCentro, "Error. no se ha podido insertar.");
+			JOptionPane.showMessageDialog(dialogoAnadirCentro, "Error. no se ha podido insertar.");
 		} else {
-			JOptionPane.showMessageDialog(dialogoAñadirCentro, "Insercion del centro correcta");
-			dialogoAñadirCentro.setVisible(false);
+			JOptionPane.showMessageDialog(dialogoAnadirCentro, "Insercion del centro correcta");
+			dialogoAnadirCentro.setVisible(false);
 		}
 	}
 	
