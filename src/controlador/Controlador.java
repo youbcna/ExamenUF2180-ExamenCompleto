@@ -3,14 +3,19 @@
  */
 package controlador;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import dao.CentroDAO;
+import dao.DepartamentoDAO;
 import modelo.Centro;
+import modelo.Departamento;
 import vista.DialogoAnadirCentro;
+import vista.DialogoAnadirDepartamento;
 import vista.VentanaMostrarCentros;
+import vista.VentanaMostrarDepartamentos;
 import vista.VentanaPpal;
 
 /**
@@ -23,9 +28,12 @@ public class Controlador {
 	private VentanaPpal ventanaPpal;
 	private VentanaMostrarCentros ventanaMostrarCentros;
 	private DialogoAnadirCentro dialogoAnadirCentro;
+	private VentanaMostrarDepartamentos ventanaMostrarDepartamentos;
+	private DialogoAnadirDepartamento dialogoAnadirDepartamento;
 	
 	// Objetos DAO o CRUD de la base de datos
 	private CentroDAO centroDAO;
+	private DepartamentoDAO departamentoDAO;
 
 	
 	
@@ -34,15 +42,19 @@ public class Controlador {
 		ventanaPpal = new VentanaPpal();
 		ventanaMostrarCentros = new VentanaMostrarCentros();
 		dialogoAnadirCentro = new DialogoAnadirCentro();
+		ventanaMostrarDepartamentos = new VentanaMostrarDepartamentos();
+		dialogoAnadirDepartamento = new DialogoAnadirDepartamento();
 		
 		// Dando acceso al controlador desde las vistas
 		ventanaPpal.setControlador(this);
 		ventanaMostrarCentros.setControlador(this);
 		dialogoAnadirCentro.setControlador(this);
-
+		ventanaMostrarDepartamentos.setControlador(this);
+		dialogoAnadirDepartamento.setControlador(this);
 		
 		// Creamos los objetos DAO
 		centroDAO = new CentroDAO();
+		this.departamentoDAO= new DepartamentoDAO();
 	}
 	
 	
@@ -57,6 +69,12 @@ public class Controlador {
 		ArrayList<Centro> lista = centroDAO.obtenerCentros();
 		ventanaMostrarCentros.setListaCentros(lista);
 		ventanaMostrarCentros.setVisible(true);
+	}
+	
+	public void mostrarListarDepartamentos() {
+		ArrayList<Departamento> lista = departamentoDAO.obtenerDepartamentos();
+		ventanaMostrarDepartamentos.setListaDepartamentos(lista);
+		ventanaMostrarDepartamentos.setVisible(true);
 	}
 	
 	public void mostrarInsertarCentros() {
@@ -79,5 +97,19 @@ public class Controlador {
 		}
 	}
 	
+	public void mostrarInsertarDepatartamento() {
+		ArrayList<Centro>lista = centroDAO.obtenerCentros();
+		dialogoAnadirDepartamento.setListaCentros(lista);
+		
+		
+		dialogoAnadirDepartamento.setVisible(true);
+	}
+
+
+	public void insertarDepartamento(Departamento dpto) throws SQLException {
+		departamentoDAO.insertarDepartamento(dpto);
+		mostrarListarDepartamentos();
+		
+	}
 	
 }

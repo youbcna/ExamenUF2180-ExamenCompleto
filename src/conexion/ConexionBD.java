@@ -13,9 +13,13 @@ import java.sql.SQLException;
  */
 public class ConexionBD {
 
+	// comandos para la creacion y asignacion de permisos
+//	create user empresario identified by '1234';
+//    grant select,insert on empresa.* to empresario;
+	
 	private static final String database = "empresa";
-	private static final String usuario = "root";
-	private static final String contrasena = "123456";
+	private static final String usuario = "empresario";
+	private static final String contrasena = "1234";
 	private static final String url="jdbc:mysql://localhost/"+database;
 	
 	private Connection conexion=null;
