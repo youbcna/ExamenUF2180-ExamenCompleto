@@ -14,7 +14,7 @@ import vista.VentanaMostrarCentros;
 import vista.VentanaPpal;
 
 /**
- * @author David
+ * @author You
  *
  */
 public class Controlador {
