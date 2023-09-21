@@ -14,7 +14,7 @@ import conexion.ConexionBD;
 import modelo.Centro;
 
 /**
- * @author David
+ * @author You
  * Clase que implementa un CRUD de la base batos
  * (Create, Read, update y delete)
  */
@@ -121,7 +121,7 @@ public class CentroDAO {
 			resultado=consulta.executeUpdate();
 
 		} catch (SQLException e) {
-			System.out.println("Error al realizar la inserción del centro: "
+			System.out.println("Error al realizar la inserciÃ³n del centro: "
 		        +e.getMessage());
 		} finally {
 			try {
